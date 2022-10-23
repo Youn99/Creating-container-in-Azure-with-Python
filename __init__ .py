@@ -26,9 +26,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     if container:
         # The name of containers that you need to create.
-        lista_container = ['Original_files', 'Cleaned_files']
+        list_container = ['Original_files', 'Cleaned_files']
         container = f'{container}_files'
-        if container in lista_container :
+        if container in list_container :
             connection_string = "<your_connection_string>"
             blob_service_client = BlobServiceClient.from_connection_string(connection_string)
                     # Instantiate a new ContainerClient
@@ -41,7 +41,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             return func.HttpResponse("Container created with success!!" , status_code=200)
 
         else:
-            return func.HttpResponse(f'Name not allowed!, these are the allowed names: {lista_container}', status_code = 200)
+            return func.HttpResponse(f'Name not allowed!, these are the allowed names: {list_container}', status_code = 200)
 
         
 
